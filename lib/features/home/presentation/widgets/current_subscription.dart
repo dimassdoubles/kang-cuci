@@ -34,7 +34,7 @@ class CurrentSubscription extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "Paket Regular",
+                  "Kuota Langganan Anda",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -48,7 +48,6 @@ class CurrentSubscription extends StatelessWidget {
                       "Kuota tersisa",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 18,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
