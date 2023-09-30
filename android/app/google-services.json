@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094285750424",
+    "project_id": "kang-cuci",
+    "storage_bucket": "kang-cuci.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094285750424:android:bcfa3f6c09ca42fc1360ed",
+        "android_client_info": {
+          "package_name": "com.example.kang_cuci"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaZwzR-JFAnj3LH3get94ivgc-tpuBicM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
