@@ -34,11 +34,13 @@ class LoginScreen extends StatelessWidget {
             Gaps.vLarge,
             ElevatedButton(
               onPressed: () {
-                context.router
-                    .push(UnimplementedRoute(title: "Sign in with phone"));
+                context.router.push(const CompleteProfileRoute());
               },
               style: ElevatedButton.styleFrom(
                 padding: AppPaddings.allMedium,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: AppBorderRadius.medium,
+                ),
                 elevation: 0,
                 backgroundColor: AppColors.primary,
               ),
@@ -52,7 +54,21 @@ class LoginScreen extends StatelessWidget {
               )),
             ),
             Gaps.vLarge,
-            const Divider(),
+            Gaps.vMedium,
+            const Row(
+              children: [
+                Expanded(child: Divider()),
+                Padding(
+                  padding: AppPaddings.hMedium,
+                  child: Text(
+                    "Masuk dengan metode lain",
+                    style: TextStyle(fontSize: 12, color: AppColors.neutral700),
+                  ),
+                ),
+                Expanded(child: Divider()),
+              ],
+            ),
+            Gaps.vMedium,
             Gaps.vLarge,
             SignInWithGoogleButton()
           ],

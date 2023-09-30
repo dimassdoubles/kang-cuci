@@ -27,6 +27,9 @@ class SignInWithGoogleButton extends StatelessWidget {
           _authBloc.add(SignInWithGoogle());
         },
         style: OutlinedButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: AppBorderRadius.medium,
+            ),
             padding: AppPaddings.allMedium,
             foregroundColor: AppColors.primary,
             side: const BorderSide(color: AppColors.primary)),

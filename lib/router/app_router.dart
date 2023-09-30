@@ -1,6 +1,7 @@
 import 'package:kang_cuci/features/auth/auth.dart';
 import 'package:kang_cuci/features/home/home.dart';
 import 'package:kang_cuci/features/product/product.dart';
+import 'package:kang_cuci/features/profile/profile.dart';
 import 'package:kang_cuci/features/unimplemented_screen.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class AppRouter extends _$AppRouter {
           page: HomeRoute.page,
           initial: true,
         ),
+        AutoRoute(page: CompleteProfileRoute.page),
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: SelectProductRoute.page),
         AutoRoute(page: UnimplementedRoute.page),
