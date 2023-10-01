@@ -54,7 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     BlocBuilder<auth.AuthCubit, auth.User?>(
                         bloc: _authCubit,
                         builder: (context, state) {
-                          return const LoginRecomendation();
+                          if (state == null) {
+                            return const LoginRecomendation();
+                          }
+                          return const SizedBox.shrink();
                         }),
                     Gaps.vLarge,
                     const CurrentSubscription(),

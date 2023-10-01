@@ -8,8 +8,8 @@ class MainMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Menu utama")),
-      body: Center(child: Text("Menu utama")),
+      appBar: AppBar(title: const Text("Menu utama")),
+      body: const Center(child: Text("Menu utama")),
     );
   }
 }
