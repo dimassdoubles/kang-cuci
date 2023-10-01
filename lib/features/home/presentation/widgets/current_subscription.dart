@@ -25,22 +25,23 @@ class CurrentSubscription extends StatelessWidget {
                 Color(0xff43C3EC),
               ]),
         ),
-        child: Row(
+        child: const Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Expanded(
+            Expanded(
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Kuota Langganan Anda",
+                  "Langganan Anda",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                Gaps.vLarge,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -52,7 +53,7 @@ class CurrentSubscription extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "34 Kg",
+                      "0 Kg",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -60,31 +61,31 @@ class CurrentSubscription extends StatelessWidget {
                       ),
                     ),
                     Gaps.vLarge,
-                    Text(
-                      "Sampai 21 September 2023",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Gaps.vLarge,
+                    // Text(
+                    //   "Sampai 21 September 2023",
+                    //   style: TextStyle(
+                    //     color: Colors.white,
+                    //     fontWeight: FontWeight.w400,
+                    //   ),
+                    // ),
+                    // Gaps.vLarge,
                   ],
                 )
               ],
             )),
-            OutlinedButton(
-              onPressed: () {},
-              style: OutlinedButton.styleFrom(
-                side: const BorderSide(
-                  color: Colors.white,
-                ),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: AppBorderRadius.rounded,
-                ),
-                foregroundColor: Colors.white,
-              ),
-              child: const Text("Selengkapnya"),
-            )
+            // OutlinedButton(
+            //   onPressed: () {},
+            //   style: OutlinedButton.styleFrom(
+            //     side: const BorderSide(
+            //       color: Colors.white,
+            //     ),
+            //     shape: const RoundedRectangleBorder(
+            //       borderRadius: AppBorderRadius.rounded,
+            //     ),
+            //     foregroundColor: Colors.white,
+            //   ),
+            //   child: const Text("Beli paket"),
+            // )
           ],
         ),
       ),

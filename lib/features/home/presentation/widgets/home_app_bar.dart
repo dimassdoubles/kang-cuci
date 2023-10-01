@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:kang_cuci/router/app_router.dart';
 import 'package:kang_cuci/ui_kit/ui_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,7 +48,11 @@ class HomeAppbar extends StatelessWidget {
                 Gaps.hLarge,
                 SvgPicture.asset("assets/icons/ic-notification.svg"),
                 Gaps.hLarge,
-                SvgPicture.asset("assets/icons/ic-other-menu.svg")
+                InkWell(
+                    onTap: () {
+                      context.router.push(const MainMenuRoute());
+                    },
+                    child: SvgPicture.asset("assets/icons/ic-other-menu.svg"))
               ],
             ),
           ],

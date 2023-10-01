@@ -17,6 +17,7 @@ class AppRouter extends _$AppRouter {
           initial: true,
         ),
         AutoRoute(page: CompleteProfileRoute.page),
+        AutoRoute(page: MainMenuRoute.page),
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: SelectProductRoute.page),
         AutoRoute(page: UnimplementedRoute.page),

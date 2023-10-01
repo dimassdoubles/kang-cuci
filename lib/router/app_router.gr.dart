@@ -33,6 +33,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LoginScreen(),
       );
     },
+    MainMenuRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MainMenuScreen(),
+      );
+    },
     SelectProductRoute.name: (routeData) {
       final args = routeData.argsAs<SelectProductRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -94,6 +100,20 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MainMenuScreen]
+class MainMenuRoute extends PageRouteInfo<void> {
+  const MainMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          MainMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MainMenuRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
