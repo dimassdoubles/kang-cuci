@@ -46,6 +46,7 @@ class _HomeProductCategoryListState extends State<HomeProductCategoryList> {
                                   productCategory: e,
                                 ));
                               },
+                              code: e.code,
                               id: e.id,
                               title: e.name,
                               description: e.description,

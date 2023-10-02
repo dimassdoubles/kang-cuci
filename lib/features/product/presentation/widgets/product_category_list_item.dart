@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProductCategoryListItem extends StatelessWidget {
   // ignore: unused_field
   final String _id;
+  // ignore: unused_field
+  final String _code;
   final String _title;
   final String _description;
   final String _imageUrl;
@@ -12,11 +14,13 @@ class ProductCategoryListItem extends StatelessWidget {
   const ProductCategoryListItem({
     super.key,
     required String id,
+    required String code,
     required String title,
     required String description,
     required String imageUrl,
     void Function()? onTap,
   })  : _id = id,
+        _code = code,
         _title = title,
         _description = description,
         _imageUrl = imageUrl,

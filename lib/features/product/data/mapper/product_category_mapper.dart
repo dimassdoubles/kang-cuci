@@ -3,6 +3,7 @@ import 'package:kang_cuci/features/product/product.dart';
 class ProductCategoryMapper extends ProductCategory {
   const ProductCategoryMapper({
     required super.id,
+    required super.code,
     required super.name,
     required super.description,
     required super.duration,
@@ -13,6 +14,7 @@ class ProductCategoryMapper extends ProductCategory {
       {required String id}) {
     return ProductCategoryMapper(
         id: id,
+        code: json["code"],
         name: json["name"],
         description: json["description"],
         duration: json["duration"],

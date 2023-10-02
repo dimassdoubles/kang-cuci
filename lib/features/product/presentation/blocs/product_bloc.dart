@@ -25,8 +25,8 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       (event, emit) async {
         emit(Loading());
 
-        final (error, success) = await _productService.getProducts(
-            ctgrProductId: event.ctgrProductId);
+        final (error, success) =
+            await _productService.getProducts(subCtgrCode: event.ctgrProductId);
 
         if (error != null) {
           emit(Error(error));

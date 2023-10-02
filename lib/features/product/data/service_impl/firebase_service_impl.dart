@@ -9,16 +9,20 @@ class FirebaseProductService implements ProductService {
   @override
   Future<(AppFailures?, List<ProductCategory>?)> getProductCategories() async {
     try {
+      debugPrint("getProductCategories");
       final ctgrProductRef =
-          FirebaseFirestore.instance.collection("productCategories");
+          FirebaseFirestore.instance.collection("productSubCategories");
+      const String ctgrCode = "SU";
 
       List<ProductCategory> result = [];
 
-      final snapshot = await ctgrProductRef.get();
+      final snapshot =
+          await ctgrProductRef.where("ctgrCode", isEqualTo: ctgrCode).get();
+
+      debugPrint("${snapshot.docs.length}");
 
       for (var doc in snapshot.docs) {
         result.add(ProductCategoryMapper.fromJson(id: doc.id, doc.data()));
-        debugPrint(result.first.description);
       }
       return (null, result);
     } catch (e) {
@@ -28,16 +32,18 @@ class FirebaseProductService implements ProductService {
 
   @override
   Future<(AppFailures?, List<Product>?)> getProducts(
-      {required String ctgrProductId}) async {
+      {required String subCtgrCode}) async {
     try {
       final productRef =
           FirebaseFirestore.instance.collection("products").where(
-                "ctgrId",
-                isEqualTo: ctgrProductId,
+                "subCtgrCode",
+                isEqualTo: subCtgrCode,
               );
 
       List<Product> result = [];
       final snapshot = await productRef.get();
+
+      debugPrint("${snapshot.docs.length}");
 
       for (var doc in snapshot.docs) {
         result.add(ProductMapper.fromJson(id: doc.id, doc.data()));

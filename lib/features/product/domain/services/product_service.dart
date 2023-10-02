@@ -4,5 +4,5 @@ import 'package:kang_cuci/features/product/product.dart';
 abstract class ProductService {
   Future<(AppFailures?, List<ProductCategory>?)> getProductCategories();
   Future<(AppFailures?, List<Product>?)> getProducts(
-      {required String ctgrProductId});
+      {required String subCtgrCode});
 }

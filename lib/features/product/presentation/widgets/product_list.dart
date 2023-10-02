@@ -20,7 +20,7 @@ class _ProductListState extends State<ProductList> {
   @override
   void initState() {
     super.initState();
-    _productBloc.add(GetProducts(ctgrProductId: widget._productCategory.id));
+    _productBloc.add(GetProducts(ctgrProductId: widget._productCategory.code));
   }
 
   @override
