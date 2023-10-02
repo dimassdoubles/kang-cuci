@@ -1,3 +1,5 @@
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kang_cuci/features/payment/payment.dart';
 import 'package:kang_cuci/features/product/product.dart';
 import 'package:kang_cuci/injections/injections.dart';
 import 'package:kang_cuci/router/app_router.dart';
@@ -21,28 +23,63 @@ class BuyProductButton extends StatelessWidget {
       child: BlocBuilder<SelectProductCubit, Product?>(
           bloc: _selectProductCubit,
           builder: (context, state) {
-            return ElevatedButton(
-              onPressed: () {
-                if (state != null) {
-                  context.router.push(UnimplementedRoute(title: "Pembayaran"));
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor:
-                    state != null ? AppColors.primary : AppColors.neutral600,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: AppBorderRadius.rounded,
+            return Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      "Pilih metode pembayaran",
+                      style: TextStyle(
+                        color: AppColors.neutral700,
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: AppBorderRadius.medium,
+                          ),
+                          builder: (context) {
+                            return const SelectPaymentMethodModal();
+                          },
+                        );
+                      },
+                      child: SvgPicture.asset(
+                        "assets/icons/ic-other.svg",
+                        width: 24,
+                      ),
+                    ),
+                  ],
                 ),
-                padding: AppPaddings.allMedium,
-              ),
-              child: const Center(
-                child: Text(
-                  "Beli langganan",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                Gaps.vLarge,
+                ElevatedButton(
+                  onPressed: () {
+                    if (state != null) {
+                      context.router
+                          .push(UnimplementedRoute(title: "Pembayaran"));
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: state != null
+                        ? AppColors.primary
+                        : AppColors.neutral600,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: AppBorderRadius.rounded,
+                    ),
+                    padding: AppPaddings.allMedium,
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Beli langganan",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             );
           }),
     );
