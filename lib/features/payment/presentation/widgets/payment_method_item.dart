@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kang_cuci/features/payment/payment.dart';
+import 'package:kang_cuci/injections/injections.dart';
 import 'package:kang_cuci/ui_kit/ui_kit.dart';
 
 class PaymentMethodItem extends StatelessWidget {
-  final String _iconPath;
-  final String _label;
-  final String _value;
-  final String? _currentSelectedValue;
-  final void Function()? _onSelected;
-  const PaymentMethodItem({
+  final PaymentMethods _method;
+  PaymentMethodItem({
     super.key,
-    required String iconPath,
-    required String label,
-    required void Function()? onSelected,
-    required String value,
-    required String? currentSelectedvalue,
-  })  : _iconPath = iconPath,
-        _label = label,
-        _onSelected = onSelected,
-        _value = value,
-        _currentSelectedValue = currentSelectedvalue;
+    required PaymentMethods method,
+  }) : _method = method;
+
+  final PaymentMethodCubit _paymentMethodCubit =
+      getIt.get<PaymentMethodCubit>();
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _onSelected,
+      onTap: () {
+        _paymentMethodCubit.set(_method);
+        Navigator.pop(context);
+      },
       child: Column(
         children: [
           Gaps.vMedium,
@@ -34,12 +30,12 @@ class PaymentMethodItem extends StatelessWidget {
               Row(
                 children: [
                   SvgPicture.asset(
-                    _iconPath,
+                    _method.iconPath,
                     width: 32,
                   ),
                   Gaps.hMedium,
                   Text(
-                    _label,
+                    _method.label,
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -48,8 +44,8 @@ class PaymentMethodItem extends StatelessWidget {
                 ],
               ),
               Radio(
-                value: _value,
-                groupValue: _currentSelectedValue,
+                value: _method.code,
+                groupValue: _paymentMethodCubit.state?.code,
                 onChanged: (value) {},
               )
             ],

@@ -1,5 +1,5 @@
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:kang_cuci/features/payment/payment.dart';
+import 'package:kang_cuci/features/payment/payment.dart' as payment;
 import 'package:kang_cuci/features/product/product.dart';
 import 'package:kang_cuci/injections/injections.dart';
 import 'package:kang_cuci/router/app_router.dart';
@@ -16,6 +16,9 @@ class BuyProductButton extends StatelessWidget {
   final SelectProductCubit _selectProductCubit =
       getIt.get<SelectProductCubit>();
 
+  final payment.PaymentMethodCubit _paymentMethodCubit =
+      getIt.get<payment.PaymentMethodCubit>();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,12 +31,20 @@ class BuyProductButton extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      "Pilih metode pembayaran",
-                      style: TextStyle(
-                        color: AppColors.neutral700,
-                      ),
-                    ),
+                    BlocBuilder<payment.PaymentMethodCubit,
+                            payment.PaymentMethods?>(
+                        bloc: _paymentMethodCubit,
+                        builder: (context, state) {
+                          if (state != null) {
+                            return Text(state.label);
+                          }
+                          return const Text(
+                            "Pilih metode pembayaran",
+                            style: TextStyle(
+                              color: AppColors.neutral700,
+                            ),
+                          );
+                        }),
                     InkWell(
                       onTap: () {
                         showModalBottomSheet(
@@ -42,7 +53,7 @@ class BuyProductButton extends StatelessWidget {
                             borderRadius: AppBorderRadius.medium,
                           ),
                           builder: (context) {
-                            return const SelectPaymentMethodModal();
+                            return const payment.SelectPaymentMethodModal();
                           },
                         );
                       },

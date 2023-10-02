@@ -34,22 +34,10 @@ class SelectPaymentMethodModal extends StatelessWidget {
             ),
             Gaps.vLarge,
             PaymentMethodItem(
-              iconPath: "assets/icons/ic-gopay.svg",
-              label: "Gopay",
-              onSelected: () {
-                Navigator.pop(context);
-              },
-              value: "gopay",
-              currentSelectedvalue: null,
+              method: PaymentMethods.gopay,
             ),
             PaymentMethodItem(
-              iconPath: "assets/icons/ic-bca.svg",
-              label: "Transfer BCA",
-              onSelected: () {
-                Navigator.pop(context);
-              },
-              value: "bca",
-              currentSelectedvalue: null,
+              method: PaymentMethods.bca,
             ),
             const Gaps(
               height: 68,
